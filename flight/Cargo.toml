@@ -20,4 +20,4 @@ reqwest = "0.10"
 serde = "1"
 serde_json = "1"
 uuid = { version = "0.8", features = ["v4"] }
-watchtower-client = { path = "/Users/boom/code/one_man_one_laptop/watchtower-rs/watchtower-client" }
+watchtower-client = { git = "https://github.com/one-man-one-laptop/watchtower-rs", branch = "main" }

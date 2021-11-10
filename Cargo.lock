@@ -2497,6 +2497,7 @@ checksum = "c279e376c7a8e8752a8f1eaa35b7b0bee6bb9fb0cdacfa97cc3f1f289c87e2b4"
 [[package]]
 name = "watchtower-client"
 version = "0.1.0"
+source = "git+https://github.com/one-man-one-laptop/watchtower-rs?branch=main#d7138bdcd4006dce9f22d70698fec83f6eecfbe0"
 dependencies = [
  "actix",
  "futures-util",

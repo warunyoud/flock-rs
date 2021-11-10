@@ -34,7 +34,7 @@ async fn main() -> std::io::Result<()> {
         )
         .service(web::resource("/ws").route(web::get().to(routes::ws::index)))
     )
-    .bind(format!("{}:{}", instance_info.host, instance_info.port))?
+    .bind(format!("0.0.0.0:{}", instance_info.port))?
     .run()
     .await
 }

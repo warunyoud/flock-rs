@@ -40,7 +40,7 @@ async fn main() -> std::io::Result<()> {
             .configure(routes::api::v1::config)
         )
     )
-    .bind(format!("{}:{}", instance_info.host, instance_info.port))?
+    .bind(format!("0.0.0.0:{}", instance_info.port))?
     .run()
     .await
 }
