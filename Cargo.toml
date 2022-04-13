@@ -2,5 +2,6 @@
 
 members = [
     "flight",
-    "traffic-control"
+    "traffic-control",
+    "traffic_control_client",
 ]

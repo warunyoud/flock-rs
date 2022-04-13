@@ -104,7 +104,6 @@ async fn reset(_: AuthorizedReq, info: web::Query<TargetInfo>, app_state: web::D
 
 async fn send_event(req_body: String, target: RespValue, topic: String, http_client: &reqwest::Client, auth: &AuthInfo) -> Result<()> {
     if let Ok(target) = TargetInfo::try_from(target) {
-        println!("{:?}", target);
         let url = format!("http://{}/api/v1/event/{}", target, topic);
         let auth = auth.clone();
         let res = http_client
@@ -131,9 +130,9 @@ async fn publish_event(_: AuthorizedReq, path: web::Path<(String,)>, req_body: S
                 send_event(req_body.to_string(), target, topic.to_string(), &app_state.http_client, &app_state.auth)
             });
             join_all(sends).await;
-            Ok(HttpResponse::Ok().finish())
+            Ok(HttpResponse::NoContent().finish())
         }
-        Ok(RespValue::Nil) => Ok(HttpResponse::Ok().finish()),
+        Ok(RespValue::Nil) => Ok(HttpResponse::NoContent().finish()),
         _ => Ok(HttpResponse::InternalServerError().finish())
     }    
 }

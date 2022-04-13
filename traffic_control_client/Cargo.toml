@@ -1,0 +1,17 @@
+[package]
+name = "traffic_control_client"
+version = "0.1.0"
+authors = ["Warunyou Dej-Udom <warunyou_d@yahoo.com>"]
+edition = "2021"
+
+[lib]
+name = "traffic_control_client"
+crate-type = ["cdylib", "rlib"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = { version = "0.2", features = ["sync"] }
+reqwest = { version = "0.10", features = ["json"] }
+log = "0.4"
+pyo3 = { version = "0.16", features = ["extension-module"] }
