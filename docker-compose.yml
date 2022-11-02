@@ -1,21 +1,21 @@
 version: "3.9"
 services:
-  flight:
-    image: "warunyoudejudom/flight:0.1"
-    ports:
-      - "8081:8081"
-    environment:
-      FLIGHT_HOST: flight
-      FLIGHT_PORT: 8081
-      TRAFFIC_CONTROL_URL: http://traffic_control:8080
-  traffic_control:
-    image: "warunyoudejudom/traffic_control:0.1"
-    ports:
-      - "8080:8080"
-    environment:
-      TRAFFIC_CONTROL_HOST: traffic_control
-      TRAFFIC_CONTROL_PORT: 8080
-      REDIS_HOST: redis
+  # flight:
+  #   image: "warunyoudejudom/flight:0.1"
+  #   ports:
+  #     - "8081:8081"
+  #   environment:
+  #     FLIGHT_HOST: flight
+  #     FLIGHT_PORT: 8081
+  #     TRAFFIC_CONTROL_URL: http://traffic_control:8080
+  # traffic_control:
+  #   image: "warunyoudejudom/traffic_control:0.1"
+  #   ports:
+  #     - "8080:8080"
+  #   environment:
+  #     TRAFFIC_CONTROL_HOST: traffic_control
+  #     TRAFFIC_CONTROL_PORT: 8080
+  #     REDIS_HOST: redis
   redis:
     image: "redis:latest"
     ports:

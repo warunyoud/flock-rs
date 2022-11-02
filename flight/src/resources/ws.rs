@@ -35,7 +35,8 @@ pub enum WsMessage {
 #[serde(tag = "type")]
 pub enum WsCommand {
     Subscribe { topic: String, request_id: String },
-    Unsubscribe { topic: String, request_id: String }
+    Unsubscribe { topic: String, request_id: String },
+    Ping
 }
 
 impl Message for WsMessage {
@@ -105,6 +106,9 @@ impl StreamHandler<Result<ws::Message, ws::ProtocolError>> for MyWs {
                             topic: topic.to_string(), 
                             request_id: request_id.to_string()
                         });
+                    }
+                    Ok(WsCommand::Ping) => {
+                        ctx.pong(&[]);
                     }
                     Err(error) => {
                         self.app_state.get_ref().dispatcher.do_send(DispatcherMessage::Close(self.socket_id.to_string()));
